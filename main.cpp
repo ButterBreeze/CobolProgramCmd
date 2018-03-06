@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 std::string getInput(std::string subject);
 
@@ -14,8 +15,8 @@ int main() {
     std::string dateFormat = "99/99/9999";
     std::string pageNumber = "Z9";
     std::string programName = "";
-
-
+    std::vector <std::string> headerList;
+    std::vector <std::string> variableList;
 
     //getting title line info
     std::string useDate = getInput("if you would like to use date(y/n)");
@@ -39,6 +40,25 @@ int main() {
 
     programName = getInput("the program name you would like to go off to the side");
 
+    std::string hold = "";
+
+    while(true){
+        hold = getInput("the header.");
+        if(hold == "")
+            break;
+        headerList.push_back(hold);
+        variableList.push_back((getInput("the size of the variable format")));
+
+    }
+
+    headerList.shrink_to_fit();
+    variableList.shrink_to_fit();
+
+    int headerSize = 0;
+    for(int i; i<headerList.size(); i++)
+        headerSize+=headerList[i].length();
+
+    
 
 
 
